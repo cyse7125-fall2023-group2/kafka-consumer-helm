@@ -109,6 +109,11 @@ kafka:
       protocol: PLAINTEXT
   provisioning:
     enabled: true
+    args:
+      - -ec
+      - |
+        curl -fsI -X POST http://localhost:15020/quitquitquit
+        echo "Provisioning succeeded"
     numPartitions: 3
     replicationFactor: 1
     topics:
