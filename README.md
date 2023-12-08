@@ -1,6 +1,1 @@
 # kafka-consumer-helm
-
-
-
-
-
