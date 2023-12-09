@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: consumer-database-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      instance: {{ .Release.Name }}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app : {{ .Release.Name }}-webapp-consumer
+      ports:
+        - protocol: TCP
+          port: 5432
+
